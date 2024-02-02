@@ -12,8 +12,6 @@ import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.GroupLayout.Alignment;
 
-//import javafx.stage.Popup;
-
 class RegistrationForm  extends Frame implements ActionListener
 {
 	Label label, lblname, lblrollno, lblbranch, lblgen, lblage, lbl, lblpop ;
@@ -28,7 +26,7 @@ class RegistrationForm  extends Frame implements ActionListener
 	
 	RegistrationForm(String title)
 	{
-        //For Frame
+        	//For Frame
 		super(title);
 		setSize(600, 600);
 		setVisible(true);
@@ -81,13 +79,13 @@ class RegistrationForm  extends Frame implements ActionListener
 		lblbranch.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		add(lblbranch);
 
-        //Add Label lbl
-        lbl = new Label("Status", Label.CENTER);
-        lbl.setLocation(150, 550);
-        lbl.setSize(320, 50);
-        lbl.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+        	//Add Label lbl
+        	lbl = new Label("Status", Label.CENTER);
+        	lbl.setLocation(150, 550);
+        	lbl.setSize(320, 50);
+        	lbl.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		//lbl.setBackground(Color.blue);
-        add(lbl);
+       		add(lbl);
 		
 		//Add Textfield txtname
 		txtname = new TextField(20);
@@ -107,7 +105,7 @@ class RegistrationForm  extends Frame implements ActionListener
 		txtage.setSize(200, 30);
 		add(txtage);
 
-        gen1 = new JRadioButton("Male");
+        	gen1 = new JRadioButton("Male");
 		gen2 = new JRadioButton("Female");
 		gen3 = new JRadioButton("Other");
 		gen1.setBounds(150,320,100,50); 
@@ -154,7 +152,7 @@ class RegistrationForm  extends Frame implements ActionListener
 		//Add Button submit to ActionListener List
 		submit.addActionListener(this);
 
-        //Frame Closing
+        	//Frame Closing
 		addWindowListener(new WindowAdapter()
 		{
 			public void windowClosing(WindowEvent e)
@@ -164,7 +162,7 @@ class RegistrationForm  extends Frame implements ActionListener
 		});
 	}
 	
-    public void actionPerformed(ActionEvent e)
+    	public void actionPerformed(ActionEvent e)
 	{
 		if(e.getActionCommand().equals("Submit")) 			
 		{
@@ -181,7 +179,7 @@ class RegistrationForm  extends Frame implements ActionListener
 			
 			try 
 		    {
-		        //loading the jdbc odbc driver
+		    //loading the jdbc odbc driver
 	            Class.forName("com.mysql.jdbc.Driver");
 	            //System.out.println("\n Drivers are loaded Successfully");
 
@@ -195,6 +193,7 @@ class RegistrationForm  extends Frame implements ActionListener
 	            ps.setString(1, txtname.getText());
 	            ps.setInt(2, Integer.parseInt(txtrollno.getText()));
 	            ps.setInt(3, Integer.parseInt(txtage.getText()));
+			    
 	            if(gen1.isSelected())
 	            {
 	            	ps.setString(4, gen1.getText());
@@ -240,8 +239,8 @@ class RegistrationForm  extends Frame implements ActionListener
 			
 			txtname.setText(null);
 			txtrollno.setText(null);
-            txtage.setText(null);
-            txtbranch.setText(null);
+           	        txtage.setText(null);
+                        txtbranch.setText(null);
 			lbl.setText("Please Enter valid Information");
 			lbl.setForeground(Color.red);
 		}
